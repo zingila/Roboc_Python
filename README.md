@@ -1,10 +1,3 @@
-<strong>Projet 'roboc'</strong>
-
-Exercice dans le cadre du cours Openclassrooms "Apprenez à programmer en Python" (fin du chapitre 3)
-> https://openclassrooms.com/courses/apprenez-a-programmer-en-python
-
---
-
 <b>CONSIGNES :</b>
 
 <p>Votre mission est de concevoir et <strong>développer un petit jeu permettant de contrôler un robot dans un labyrinthe</strong>. Ce jeu devra être développé en console pour des raisons d'accessibilité. Je l'ai appelé... <em>Roboc</em>.</p>
