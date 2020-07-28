@@ -35,3 +35,26 @@ class Carte():
         grille = "\n".join(grille)
 
         return grille
+
+
+def chaineCarte(chaine):
+
+    """
+    Méthode chaineCarte qui parcours la carte et enregistre la position
+    des objets demandés
+    """
+
+    obstacles = []
+    robot = ()
+    sortie = ()
+
+    for pos_a, val_a in enumerate(chaine.split("\n")):
+        for pos_b, val_b in enumerate(val_a):
+            if val_b == "X":
+                robot = (pos_b, pos_a)
+            if val_b == "O":
+                obstacles.append((pos_b, pos_a))
+            if val_b == "U":
+                sortie = (pos_b, pos_a)
+
+    return robot, sortie, obstacles
