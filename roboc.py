@@ -29,23 +29,13 @@ for fichier in os.listdir("cartes"):
         chemin = os.path.join("cartes", fichier)
         nom_carte = fichier[:-4]
         nom_carte = nom_carte[0].upper() + nom_carte[1:].lower()
+        with open(chemin, "r") as fichier:
+            contenu = fichier.read()
+            carte = Carte(nom_carte, contenu)
+            cartes.append(carte)
+            for key, value in enregistrement.items():
+                if carte.nom == key:
+                    carte.robot = value
+                    partie.append(carte)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+print("Parties en cours : {0}".format(enregistrement, "\n"))
