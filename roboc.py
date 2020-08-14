@@ -39,3 +39,62 @@ for fichier in os.listdir("cartes"):
                     partie.append(carte)
 
 print("Parties en cours : {0}".format(enregistrement, "\n"))
+print("Labyrinthes existants :")
+for i, carte in enumerate(cartes):
+    print("  {} - {}".format(i + 1, carte.nom ))
+
+
+
+# On selectionne une carte parmis la liste
+def choix(les_cartes):
+
+    while 1:
+        try:
+            choix = int(input("\nEntrez un numéro de labyrinthe pour commencer à jouer : "))
+            assert choix in range(1, len(les_cartes)+1)
+        except ValueError:
+            print("Erreur ! Saisir un nombre uniquement")
+            continue
+        except AssertionError:
+            print("Erreur ! Le numero de carte n'existe pas")
+            continue
+        else:
+            index = choix-1
+            choix_cartes = les_cartes[index]
+            break
+
+    return choix_cartes
+
+# 
+if len(partie) > 0:
+
+    # Stockage du choix de l'utilisateur dans 'reprendre'
+    while 1:
+        try:
+            continuer = int(input("\nUne ou des parties en cours, que souhaitez-vous ?\n\n  1 - Continuer une partie\n  2 - Démarrer une nouvelle partie\nChoix : "))
+            assert continuer in range(1, 3)
+        except ValueError:
+            print("Erreur ! Saisissez un nombre")
+            continue
+        except AssertionError:
+            print("Choisissez 1 ou 2...")
+        else:
+            continuer = True if continuer == 1 else False
+            break
+
+# Sinon, reprendre = False (aucune partie en cours)
+else:
+    continuer = False
+
+if continuer:
+    # Affichage des parties en cours
+    print("\nParties en cours :\n")
+    for i, part in enumerate(partie):
+        print("  {0} - {1}".format(i + 1, part.nom))
+    carte_choisie = choix(partie)
+else:
+    # Affichage des cartes existantes
+    print("\nCartes existantes :\n")
+    for i, carte in enumerate(cartes):
+        print("  {0} - {1}".format(i + 1, carte.nom))
+    carte_choisie = choix(cartes)
