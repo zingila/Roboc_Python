@@ -98,3 +98,14 @@ else:
     for i, carte in enumerate(cartes):
         print("  {0} - {1}".format(i + 1, carte.nom))
     carte_choisie = choix(cartes)
+
+print("Parties en cours : {0}".format(enregistrement, "\n"))
+
+#On affiche le début de la partie
+print("{0}DEBUT DE LA PARTIE{0}(carte : {1})".format("\n", carte_choisie.nom))
+
+#On crée l'instanciation d'un robot
+robot = Robot(carte_choisie.robot)
+
+#On affiche la carte
+print("\n{0}\n".format(carte_choisie.chaine))
