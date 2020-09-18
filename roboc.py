@@ -38,6 +38,7 @@ for fichier in os.listdir("cartes"):
                     carte.robot = value
                     partie.append(carte)
 
+print("partie en cours : ", enregistrement)
 print("Labyrinthes existants :")
 for i, carte in enumerate(cartes):
     print("  {} - {}".format(i + 1, carte.nom ))
