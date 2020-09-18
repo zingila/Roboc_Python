@@ -38,7 +38,6 @@ for fichier in os.listdir("cartes"):
                     carte.robot = value
                     partie.append(carte)
 
-print("Parties en cours : {0}".format(enregistrement, "\n"))
 print("Labyrinthes existants :")
 for i, carte in enumerate(cartes):
     print("  {} - {}".format(i + 1, carte.nom ))
@@ -99,6 +98,8 @@ else:
         print("  {0} - {1}".format(i + 1, carte.nom))
     carte_choisie = choix(cartes)
 
+
+
 print("Parties en cours : {0}".format(enregistrement, "\n"))
 
 #On affiche le début de la partie
@@ -109,3 +110,14 @@ robot = Robot(carte_choisie.robot)
 
 #On affiche la carte
 print("\n{0}\n".format(carte_choisie.chaine))
+
+
+# Entrées actions utilisateur
+while 1:
+
+    action = input("Action : ").lower()
+    pattern = "^q|([neso][1-9]*)$"
+
+    if not re.fullmatch(pattern, action):
+        print("Saisie erronée...")
+        continue
